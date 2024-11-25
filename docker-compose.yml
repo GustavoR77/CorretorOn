@@ -1,0 +1,18 @@
+version: "3.2"
+services:
+    corretoronnextjs: 
+        container_name: corretoron
+        build: 
+            dockerfile: DockerfileNode
+            context: .
+        tty: true
+        stdin_open: true
+        restart: unless-stopped
+        env_file: .env
+        environment:
+            - NODE_ENV=development
+        ports:
+            - 3000:3000
+        volumes:
+            - .:/var/www/corretor-on
+
